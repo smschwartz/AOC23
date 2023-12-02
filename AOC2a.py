@@ -24,10 +24,8 @@ for line in lines:
                 for (num, color) in zip(nums,colors):
                       rgb[color] = max(rgb[color],num)
     # check if any number of blocks for a color exceeds limits
-    if rgb['red'] <= rgbcheck['red'] and \
-            rgb['green'] <= rgbcheck['green'] and \
-            rgb['blue'] <= rgbcheck['blue']:
-                    sum += game
+    if all(rgb[x] <= rgbcheck[x] for x in rgb.keys()):
+        sum += game
  
 print(sum)
 
