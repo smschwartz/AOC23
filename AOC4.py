@@ -1,6 +1,6 @@
 
 import re
-import functools
+import timeit
 
 
 with open("input4.txt") as f:
@@ -47,7 +47,11 @@ def part2(lines):
      return totalcards
               
 print("part 1",part1(lines))
+start = timeit.default_timer()
+print("The start time is :", start)
 print("part 2",part2(lines))
+print("The difference of time is :", timeit.default_timer() - start)
+
 
                 
                       

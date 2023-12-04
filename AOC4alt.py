@@ -2,6 +2,7 @@
 import re
 import functools
 import operator
+import timeit
 
 
 with open("input4.txt") as f:
@@ -25,7 +26,7 @@ def processCard(card, lines):
     # if we know solution, return it
     if card in numcards.keys():
         return numcards[card]
-    # card is adding at least the immediate copies it yields
+    # card is adding at least itself
     count = 1
     for line in range(card+1,card+numcorrect[card]+1):
         count += processCard(line,lines)
@@ -48,7 +49,12 @@ def part2(lines):
      return functools.reduce(operator.add,numcards.values())
               
 print("part 1",part1(lines))
+start = timeit.default_timer()
+print("The start time is :", start)
 print("part 2",part2(lines))
+print("The difference of time is :", 
+              timeit.default_timer() - start)
+
 
                 
                       
