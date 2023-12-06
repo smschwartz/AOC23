@@ -8,7 +8,6 @@ with open("input6.txt") as f:
 
 
 def countWaysToWin(race):
-      sum = 0
       (length,record) = race
       return len(list(filter(lambda l : ((length - l) * l) > record, range(1,length))))
 
