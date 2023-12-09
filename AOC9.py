@@ -1,5 +1,4 @@
-
-import timeit
+# Day 9, Stephanie Schwartz
 
 def processSeq(line):
 	temp = []
@@ -9,9 +8,7 @@ def processSeq(line):
 		temp.append([v2 - v1 for v1, v2 in zip(temp[i], temp[i][1:])])
 		i += 1
 	temp[-1].append(0)
-	for i, row in reversed(list(enumerate(temp))):
-		if i == 0:
-			break
+	for i, row in reversed(list(enumerate(temp))[:-1]):
 		temp[i-1].append(temp[i-1][-1]+row[-1])
 	return temp[0][-1]
 	
